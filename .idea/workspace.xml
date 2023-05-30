@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatApp.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../Program Files/Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
+  </component>
+  <component name="ProjectId" id="2MnJeReGeCk74mHOdbIvvaKpmJ2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "true",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_directory_selection": "C:/Users/USER/Desktop/ChatApp/src/repositories",
+    "last_opened_file_path": "C:/Users/USER/Desktop/programs/Maven/ChatApp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="dto.response" />
+      <recent name="dto.request" />
+      <recent name="model.users" />
+      <recent name="model" />
+      <recent name="repositories" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="services" />
+      <recent name="dto.response" />
+      <recent name="dto.request" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.test">
+    <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChatApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.adminCanRemoveMember" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChatApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="METHOD_NAME" value="adminCanRemoveMember" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.adminCanRemoveMemberAndMemberCanNoLongerViewGroupSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChatApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="METHOD_NAME" value="adminCanRemoveMemberAndMemberCanNoLongerViewGroupSize" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.createGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChatApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="METHOD_NAME" value="createGroup" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.createGroupChatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChatApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="METHOD_NAME" value="createGroupChatTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.test" />
+        <item itemvalue="JUnit.test.adminCanRemoveMemberAndMemberCanNoLongerViewGroupSize" />
+        <item itemvalue="JUnit.test.createGroupChatTest" />
+        <item itemvalue="JUnit.test.createGroup" />
+        <item itemvalue="JUnit.test.adminCanRemoveMember" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="" />
+      <created>1678397510496</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678397510496</updated>
+      <workItem from="1678397512017" duration="2012000" />
+      <workItem from="1678400558806" duration="10039000" />
+      <workItem from="1678445829220" duration="6694000" />
+      <workItem from="1678456764511" duration="11131000" />
+      <workItem from="1678502447248" duration="55000" />
+      <workItem from="1678535430556" duration="1505000" />
+      <workItem from="1678540157061" duration="5579000" />
+      <workItem from="1678546348108" duration="1389000" />
+      <workItem from="1678549460471" duration="347000" />
+      <workItem from="1678603510936" duration="1004000" />
+      <workItem from="1678640564950" duration="1439000" />
+      <workItem from="1678655655329" duration="106000" />
+      <workItem from="1679086301585" duration="1084000" />
+      <workItem from="1679136142721" duration="30000" />
+      <workItem from="1679150833084" duration="716000" />
+      <workItem from="1679152463962" duration="624000" />
+      <workItem from="1679173060517" duration="473000" />
+      <workItem from="1679234228452" duration="1265000" />
+      <workItem from="1679241380887" duration="4355000" />
+      <workItem from="1679264231138" duration="7146000" />
+      <workItem from="1679317330574" duration="99000" />
+      <workItem from="1679589596829" duration="7630000" />
+      <workItem from="1679632771587" duration="5361000" />
+      <workItem from="1679659782907" duration="8000" />
+      <workItem from="1679756032156" duration="3640000" />
+      <workItem from="1679765710583" duration="658000" />
+      <workItem from="1679838808280" duration="151000" />
+      <workItem from="1679918473691" duration="2522000" />
+      <workItem from="1679967196937" duration="3450000" />
+      <workItem from="1679990602339" duration="629000" />
+      <workItem from="1679997116138" duration="590000" />
+      <workItem from="1680000008002" duration="463000" />
+      <workItem from="1680007912069" duration="595000" />
+      <workItem from="1680113819684" duration="636000" />
+      <workItem from="1680149980951" duration="1213000" />
+      <workItem from="1680158157122" duration="937000" />
+      <workItem from="1680181833338" duration="1049000" />
+      <workItem from="1680287267324" duration="1188000" />
+      <workItem from="1680330034240" duration="593000" />
+      <workItem from="1680334984459" duration="594000" />
+      <workItem from="1680352725749" duration="599000" />
+      <workItem from="1680508636619" duration="1426000" />
+      <workItem from="1680525848552" duration="970000" />
+      <workItem from="1680532514072" duration="10000" />
+      <workItem from="1680693798310" duration="775000" />
+      <workItem from="1680711650093" duration="598000" />
+      <workItem from="1680728654460" duration="70000" />
+      <workItem from="1681714149229" duration="1040000" />
+      <workItem from="1681793836399" duration="1817000" />
+      <workItem from="1681824699620" duration="602000" />
+      <workItem from="1681922077770" duration="4652000" />
+      <workItem from="1681975727293" duration="46000" />
+      <workItem from="1682873109235" duration="2106000" />
+      <workItem from="1682930163933" duration="18000" />
+      <workItem from="1683059355811" duration="1008000" />
+      <workItem from="1683183182741" duration="1898000" />
+      <workItem from="1683373091747" duration="938000" />
+      <workItem from="1683452712536" duration="43000" />
+      <workItem from="1683632558687" duration="1680000" />
+      <workItem from="1684221331704" duration="984000" />
+      <workItem from="1684228869952" duration="101000" />
+      <workItem from="1685446970677" duration="1685000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
