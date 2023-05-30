@@ -8,17 +8,6 @@ import model.chat.NullChat;
 public class NullUser implements UserInterface{
 
     @Override
-    public ChatInterface findChatById(String chatId) {
-        NullChat nullChat = new NullChat();
-        return nullChat;
-    }
-
-    @Override
-    public String findChatById(String userOneId, String userTwoId) {
-        return "User Not Found!";
-    }
-
-    @Override
     public boolean isExisting() {
         return false;
     }
@@ -33,10 +22,6 @@ public class NullUser implements UserInterface{
         return "User not found!";
     }
 
-    @Override
-    public void saveNewChat(Chat chat) {
-
-    }
 
     @Override
     public void addNewGroupChat(GroupChat groupChat) {

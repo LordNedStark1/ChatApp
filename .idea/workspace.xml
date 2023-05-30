@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/users/NullUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/NullUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/users/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/PrivateChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PrivateChatServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/PrivateChatServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PrivateChatServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +226,7 @@
       <workItem from="1683632558687" duration="1680000" />
       <workItem from="1684221331704" duration="984000" />
       <workItem from="1684228869952" duration="101000" />
-      <workItem from="1685446970677" duration="1685000" />
+      <workItem from="1685446970677" duration="3537000" />
     </task>
     <servers />
   </component>

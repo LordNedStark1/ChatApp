@@ -27,9 +27,11 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
     SecureRandom random = new SecureRandom();
+
     private final UserRepositoryInterface repo;
     private long idCounter;
     private PrivateChatServiceInterface chatServiceInterface = new PrivateChatServiceImpl();
+    PrivateChatServiceInterface privateChatServiceInterface = new PrivateChatServiceImpl();
 
     public UserServiceImpl(UserRepositoryInterface repo ){
         this.repo = repo;
@@ -94,12 +96,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public String chat(ChatRequest chatRequest) {
 
-
         UserInterface receiver =  findUserById(chatRequest.getReceivingId());
         UserInterface sender = findUserById(chatRequest.getSenderId());
 
-        String chatId = sender.findChatById(sender.getUserId(), receiver.getUserId());
-        ChatInterface chat1 = sender.findChatById(chatId);
+        String chatId = privateChatServiceInterface.findChatById(sender.getUserId(), receiver.getUserId());
+        ChatInterface chat1 = privateChatServiceInterface.findChatById(chatId);
 
 
         if (receiver.isExisting() && chat1.isExisting() && sender.isExisting() ) {
@@ -118,8 +119,8 @@ public class UserServiceImpl implements UserService {
         UserInterface userOne =  findUserById(chatRequest.getSenderId());
         UserInterface userTwo =  findUserById(chatRequest.getReceivingId());
         if (userOne.isExisting() && userTwo.isExisting()){
-            PrivateChatServiceInterface privateChatService = new PrivateChatServiceImpl();
-            privateChatService.createChat(chatRequest, generatedChatId);
+
+            privateChatServiceInterface.createChat(chatRequest, generatedChatId);
         }
     }
     @Override
@@ -194,9 +195,9 @@ public class UserServiceImpl implements UserService {
         UserInterface receiver = findUserById(receiverId);
         UserInterface sender = findUserById(senderId);
 
-        String chatId = sender.findChatById(sender.getUserId(), receiver.getUserId());
+        String chatId = privateChatServiceInterface.findChatById(sender.getUserId(), receiver.getUserId());
 
-        ChatInterface chat = receiver.findChatById(chatId);
+        ChatInterface chat = privateChatServiceInterface.findChatById(chatId);
 
 //        System.out.println(chat.viewMessages().size());
 //        for (Message message : chat.viewMessages()) System.out.println(message);

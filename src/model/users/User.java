@@ -71,18 +71,7 @@ public class User implements UserInterface {
     }
 
 
-    public ChatInterface findChatById(String chatId) {
-       return repo.findChatById(chatId);
-    }
 
-    @Override
-    public String findChatById(String userOneId, String userTwoId) {
-        return repo.findChatById(userOneId,userTwoId) ;
-    }
-
-    public void  saveNewChat(Chat chat) {
-        repo.saveChat(chat);
-    }
 
     @Override
     public void addNewGroupChat(GroupChat groupChat) {
