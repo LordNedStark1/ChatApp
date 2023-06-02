@@ -12,10 +12,10 @@ public class User implements UserInterface {
     private String lastName;
     private String emailAddress;
     private String phoneNumber;
-    private UserRepositoryInterface repo;
-    public User (UserRepositoryInterface repo){
-        this.repo = repo;
-    }
+//    private UserRepositoryInterface repo;
+//    public User (UserRepositoryInterface repo){
+//        this.repo = repo;
+//    }
 
     public boolean isExisting() {
         return isExisting;
@@ -73,15 +73,15 @@ public class User implements UserInterface {
 
 
 
-    @Override
-    public void addNewGroupChat(GroupChat groupChat) {
-        repo.saveNewGroupChat(groupChat);
-    }
+//    @Override
+//    public void addNewGroupChat(GroupChat groupChat) {
+//        repo.saveNewGroupChat(groupChat);
+//    }
 
-    @Override
-    public GroupChat findGroupChatByName(String chatName) {
-        return repo.findGroupChatByName(chatName);
-    }
+//    @Override
+//    public GroupChat findGroupChatByName(String chatName) {
+//        return repo.findGroupChatByName(chatName);
+//    }
 
     @Override
     public String toString() {

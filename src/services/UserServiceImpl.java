@@ -1,6 +1,7 @@
 package services;
 
 
+import AppUtils.GenerateId;
 import dto.request.ChatRequest;
 import dto.request.CreateGroupChatRequest;
 import dto.request.GroupUserRemovalRequest;
@@ -9,6 +10,7 @@ import dto.response.GroupCreationResponse;
 import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
 
+import exceptions.UserNotFoundException;
 import model.Message;
 import model.chat.Chat;
 import model.chat.ChatInterface;
@@ -26,10 +28,11 @@ import java.util.List;
 
 
 public class UserServiceImpl implements UserService {
-    SecureRandom random = new SecureRandom();
+
+    private static final GroupChatServiceImpl groupChatService = new GroupChatServiceImpl();
 
     private final UserRepositoryInterface repo;
-    private long idCounter;
+
     private PrivateChatServiceInterface chatServiceInterface = new PrivateChatServiceImpl();
     PrivateChatServiceInterface privateChatServiceInterface = new PrivateChatServiceImpl();
 
@@ -73,22 +76,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private String generateId() {
-        StringBuilder a_z = new StringBuilder("abcdefghijklmnopqrstuvwxyz");
-        StringBuilder combined = new StringBuilder();
-
-        idCounter ++;
-
-        String number = Integer.toString( 999 + random.nextInt(9999));
-        combined.append(number);
-        String number2 = Integer.toString( 1 + random.nextInt(1000));
-        combined.append(number2);
-
-        combined.append(idCounter);
-
-        combined.append(a_z.charAt(1 + random.nextInt(25)));
-        combined.append(a_z.charAt(1 + random.nextInt(25)));
-
-        return combined.toString();
+        return GenerateId.generateId();
     }
     private UserInterface findUserById(String userId){
        return repo.findUserById(userId);
@@ -102,67 +90,61 @@ public class UserServiceImpl implements UserService {
         String chatId = privateChatServiceInterface.findChatById(sender.getUserId(), receiver.getUserId());
         ChatInterface chat1 = privateChatServiceInterface.findChatById(chatId);
 
-
         if (receiver.isExisting() && chat1.isExisting() && sender.isExisting() ) {
 
             return chatServiceInterface.privateChat(sender, chatRequest, chatId);
 
         }
         else if(receiver.isExisting() && !chat1.isExisting() && sender.isExisting()) {
-            createNewPrivateChat(chatRequest, generateId());
-            chat(chatRequest);
+            try {
+                createNewPrivateChat(chatRequest, generateId());
+                chat(chatRequest);
+            }catch (UserNotFoundException userNotFoundException){
+                return userNotFoundException.getMessage();
+            }
         }
         return  "Not Sent!";
     }
 
-    private void createNewPrivateChat(ChatRequest chatRequest, String generatedChatId) {
+    private void createNewPrivateChat(ChatRequest chatRequest, String generatedChatId) throws UserNotFoundException {
         UserInterface userOne =  findUserById(chatRequest.getSenderId());
         UserInterface userTwo =  findUserById(chatRequest.getReceivingId());
         if (userOne.isExisting() && userTwo.isExisting()){
 
             privateChatServiceInterface.createChat(chatRequest, generatedChatId);
         }
+        else{
+            throw new UserNotFoundException("The user is not found");
+        }
     }
     @Override
     public GroupCreationResponse createGroupChat(CreateGroupChatRequest createGroupChatRequest) {
 
         UserInterface user1 = findUserById(createGroupChatRequest.getAdminId());
+
         List<UserInterface> users = new ArrayList<>();
+        users.add(user1);
 
         for (String userId : createGroupChatRequest.allMembers()) users.add(findUserById(userId));
 
-        GroupChat groupChat = new GroupChat();
+       return groupChatService.createGroupChat(createGroupChatRequest, users);
 
-        groupChat.setGroupName(createGroupChatRequest.getGroupName());
-
-        groupChat.addMembers(users);
-        groupChat.makeAdmin(user1);
-        groupChat.setChatId(generateId());
-        groupChat.setExisting(true);
-
-        for (UserInterface user : users) user.addNewGroupChat(groupChat);
-
-        GroupCreationResponse groupCreationResponse = new GroupCreationResponse();
-
-        groupCreationResponse.setGroupChatId(groupChat.getChatId());
-        groupCreationResponse.setGroupName(groupChat.getGroupName());
-        return groupCreationResponse;
     }
 
     @Override
     public int getGroupChatSize(String userId, String elites) {
 
-        return repo.groupChatMembershipSize(userId, elites);
+        return groupChatService.groupChatMembershipSize(userId, elites);
     }
 
     @Override
     public GroupChat getGroupChat(String userId, String chatName) {
-        return repo.findGroupByNameAndUserId(userId, chatName);
+        return groupChatService.findGroupByNameAndUserId(userId, chatName);
     }
 
     @Override
     public GroupUserRemovalResponse removeGroupMember(GroupUserRemovalRequest groupUserRemovalRequest) {
-        GroupChat groupChat = repo.findGroupByNameAndUserId(groupUserRemovalRequest.getAdminId(), groupUserRemovalRequest.getGroupName());
+        GroupChat groupChat = groupChatService.findGroupByNameAndUserId(groupUserRemovalRequest.getAdminId(), groupUserRemovalRequest.getGroupName());
 
         UserInterface userToRemove = repo.findUserById(groupUserRemovalRequest.getMemberToRemoveId());
 

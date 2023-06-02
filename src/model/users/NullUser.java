@@ -23,16 +23,16 @@ public class NullUser implements UserInterface{
     }
 
 
-    @Override
-    public void addNewGroupChat(GroupChat groupChat) {
-
-    }
-
-    @Override
-    public GroupChat findGroupChatByName(String chatName) {
-//        NullChat nullChat = new NullChat();
-        return null;
-    }
+//    @Override
+//    public void addNewGroupChat(GroupChat groupChat) {
+//
+//    }
+//
+//    @Override
+//    public GroupChat findGroupChatByName(String chatName) {
+////        NullChat nullChat = new NullChat();
+//        return null;
+//    }
 
 
 }

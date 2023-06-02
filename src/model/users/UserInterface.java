@@ -13,7 +13,7 @@ public interface UserInterface {
 
     String getUserId();
 
-    void addNewGroupChat(GroupChat groupChat);
-
-    GroupChat findGroupChatByName(String chatName);
+//    void addNewGroupChat(GroupChat groupChat);
+//
+//    GroupChat findGroupChatByName(String chatName);
 }

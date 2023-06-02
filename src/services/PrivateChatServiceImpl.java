@@ -9,7 +9,7 @@ import repositories.PrivateChatRepositoryImpl;
 import repositories.PrivateChatRepositoryInterface;
 
 public class PrivateChatServiceImpl implements PrivateChatServiceInterface{
-    PrivateChatRepositoryInterface privateChatRepositoryInterface = new PrivateChatRepositoryImpl();
+   private static final PrivateChatRepositoryInterface privateChatRepositoryInterface = new PrivateChatRepositoryImpl();
 
     public String createChat(ChatRequest chatRequest, String generatedChatId){
         String chatId = generatedChatId;
@@ -20,6 +20,7 @@ public class PrivateChatServiceImpl implements PrivateChatServiceInterface{
         chat.setExisting(true);
         chat.setUserOneId(chatRequest.getSenderId());
         chat.setUserTwoId(chatRequest.getReceivingId());
+        privateChatRepositoryInterface.saveChat(chat);
 
         return chat.toString();
     }

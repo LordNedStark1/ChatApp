@@ -9,9 +9,15 @@
       <change beforePath="$PROJECT_DIR$/src/model/users/NullUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/NullUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/users/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/GroupChatRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/GroupChatRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/GroupChatRepositoryInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/GroupChatRepositoryInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/UserRepositoryInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/UserRepositoryInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/GroupChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/PrivateChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PrivateChatServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/PrivateChatServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PrivateChatServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,40 +62,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "true",
-    "Repository.Attach.JavaDocs": "true",
-    "Repository.Attach.Sources": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_directory_selection": "C:/Users/USER/Desktop/ChatApp/src/repositories",
-    "last_opened_file_path": "C:/Users/USER/Desktop/programs/Maven/ChatApp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/USER/Desktop/ChatApp/src/repositories&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/Desktop/programs/Maven/ChatApp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="exceptions" />
       <recent name="dto.response" />
       <recent name="dto.request" />
       <recent name="model.users" />
       <recent name="model" />
-      <recent name="repositories" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="services" />
@@ -97,7 +103,7 @@
       <recent name="dto.request" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test">
+  <component name="RunManager" selected="JUnit.test.createGroupChatTest">
     <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
@@ -107,31 +113,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.adminCanRemoveMember" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.chatOnce" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="adminCanRemoveMember" />
+      <option name="METHOD_NAME" value="chatOnce" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.adminCanRemoveMemberAndMemberCanNoLongerViewGroupSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.chatOnceWithoutNullPointerOnChat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="adminCanRemoveMemberAndMemberCanNoLongerViewGroupSize" />
+      <option name="METHOD_NAME" value="chatOnceWithoutNullPointerOnChat" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.createGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.confirmSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="createGroup" />
+      <option name="METHOD_NAME" value="confirmSignUp" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.test" />
-        <item itemvalue="JUnit.test.adminCanRemoveMemberAndMemberCanNoLongerViewGroupSize" />
         <item itemvalue="JUnit.test.createGroupChatTest" />
-        <item itemvalue="JUnit.test.createGroup" />
-        <item itemvalue="JUnit.test.adminCanRemoveMember" />
+        <item itemvalue="JUnit.test" />
+        <item itemvalue="JUnit.test.chatOnceWithoutNullPointerOnChat" />
+        <item itemvalue="JUnit.test.chatOnce" />
+        <item itemvalue="JUnit.test.confirmSignUp" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +232,11 @@
       <workItem from="1683632558687" duration="1680000" />
       <workItem from="1684221331704" duration="984000" />
       <workItem from="1684228869952" duration="101000" />
-      <workItem from="1685446970677" duration="3930000" />
+      <workItem from="1685446970677" duration="4986000" />
+      <workItem from="1685476172787" duration="685000" />
+      <workItem from="1685520471174" duration="3925000" />
+      <workItem from="1685598142697" duration="1266000" />
+      <workItem from="1685607630060" duration="605000" />
     </task>
     <servers />
   </component>

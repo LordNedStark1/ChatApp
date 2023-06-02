@@ -13,9 +13,6 @@ import java.util.List;
 public class UserRepositoryImpl implements UserRepositoryInterface {
     List<User> users = new ArrayList<>();
 
-    private List<GroupChat> groupChats = new ArrayList<>();
-
-
     @Override
     public void saveNewUser(User newUser) {
         users.add(newUser);
@@ -30,39 +27,11 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
 
 
 
-    @Override
-    public void saveNewGroupChat(GroupChat groupChat) {
-        groupChats.add(groupChat);
-    }
-
-    @Override
-    public int groupChatMembershipSize(String userId, String chatName) {
-        GroupChat groupChat = findGroupByNameAndUserId( chatName, userId);
-        return groupChat.membershipSize();
-//        GroupChat group = findGroupByUserIdAndName(chatName, userId);
-//        System.out.println(group);
-//        System.out.println(group.membershipSize());
-//       return group.membershipSize();
-    }
-
-    public GroupChat findGroupByNameAndUserId( String chatName, String userId) {
-        UserInterface user = findUserById(userId);
-        GroupChat foundChat = new GroupChat();
-
-        for (GroupChat groupChat : groupChats) {
-//            System.out.println(groupChat);
-            if ((groupChat.getGroupName().equals( chatName))) {
-                System.out.println(groupChat.viewGroupMembers());
-                if (groupChat.viewGroupMembers().contains(user)) {
-                    foundChat = groupChat;
-//                    System.out.println(foundChat);
-                }
-            }
-        }
 
 
-        return foundChat;
-    }
+
+
+
 
 //    @Override
 //    public GroupChat findGroupByUserIdAndName(String userId, String chatName) {
@@ -91,13 +60,7 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
 //       return foundChat;
 //    }
 
-    @Override
-    public GroupChat findGroupChatByName(String chatName) {
-        for (GroupChat groupChat : groupChats)
-            if (chatName.equals(groupChat.getGroupName()))
-                return groupChat;
-        return null;
-    }
+
 
 //    private ChatInterface findGroupBYIdAndName(String chatId, String chatName) {
 //        for (GroupChat chat : groupChats)

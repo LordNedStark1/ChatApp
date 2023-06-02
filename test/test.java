@@ -67,13 +67,14 @@ public class test {
         user3 = repo.findUserById(userRegRes3.getUserId());
 
         createGroupChatRequest = new CreateGroupChatRequest();
-        createGroupChatRequest.addGroupMember(user1.getUserId());
         createGroupChatRequest.makeAdmin(user1.getUserId());
+        createGroupChatRequest.addGroupMember(user1.getUserId());
         createGroupChatRequest.addGroupMember(user2.getUserId());
         createGroupChatRequest.addGroupMember(user3.getUserId());
         createGroupChatRequest.setGroupName("elites");
 
         groupCreationMessage = userService.createGroupChat(createGroupChatRequest);
+
 
         groupChat = userService.getGroupChat(user1.getUserId(), groupCreationMessage.getGroupName());
 
@@ -81,10 +82,10 @@ public class test {
     @Test
     void confirmSignUp(){
         String first = "User id is : "+ userRegRes.getUserId() + "\nFull name is : "
-                + userRegRes.getFullName()+ "\n" +  "SignUp successful!\n";
+                + userReg.getFullName()+ "\n" +  "SignUp successful!\n";
         String second = "User id is : "+ userRegRes2.getUserId() + "\nFull name is : "
-                + userRegRes2.getFullName()+ "\n" +  "SignUp successful!\n";
-
+                + userReg2.getFullName()+ "\n" +  "SignUp successful!\n";
+        System.out.println(second);
         assertEquals(String.valueOf(userRegRes),first);
         assertEquals(String.valueOf(userRegRes2),second);
 
@@ -104,6 +105,7 @@ public class test {
 
         List <Message> receivedMessage =userService.viewChat(user2.getUserId(), user1.getUserId());
         Message message2 = receivedMessage.get(0);
+
 
 
         String messageToAssert = "Message from " + message2.getSenderName() + " "+ message2.getSenderId()
