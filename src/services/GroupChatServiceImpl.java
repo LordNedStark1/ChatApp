@@ -1,6 +1,6 @@
 package services;
 
-import AppUtils.GenerateId;
+import AppUtils.Generator;
 import dto.request.CreateGroupChatRequest;
 import dto.request.GroupUserRemovalRequest;
 import dto.response.GroupCreationResponse;
@@ -13,10 +13,11 @@ import repositories.GroupChatRepositoryInterface;
 import java.util.List;
 
 public class GroupChatServiceImpl implements GroupChatService{
-    GroupChatRepositoryInterface repo = new GroupChatRepositoryImpl();
-    private static final UserService userService = new UserServiceImpl("");
+    private static final GroupChatRepositoryInterface repo = new GroupChatRepositoryImpl();
+
+    private static final UserService userService = new UserServiceImpl();
     @Override
-    public GroupCreationResponse createGroupChat(CreateGroupChatRequest createGroupChatRequest, List<UserInterface> users) {
+    public GroupCreationResponse createGroupChat(CreateGroupChatRequest createGroupChatRequest, List<String> users) {
 
         GroupChat groupChat = new GroupChat();
 
@@ -24,7 +25,7 @@ public class GroupChatServiceImpl implements GroupChatService{
 
         groupChat.makeAdmin(users.get(0));
         groupChat.addMembers(users);
-        groupChat.setChatId(GenerateId.generateId());
+        groupChat.setChatId(Generator.generateId());
         groupChat.setExisting(true);
 
 //        for (UserInterface user : users) user.addNewGroupChat(groupChat);
@@ -33,13 +34,14 @@ public class GroupChatServiceImpl implements GroupChatService{
 
         groupCreationResponse.setGroupChatId(groupChat.getChatId());
         groupCreationResponse.setGroupName(groupChat.getGroupName());
+        groupCreationResponse.setMessage("was created successfully");
         return groupCreationResponse;
     }
 
     @Override
-    public int getGroupChatSize(String userId, String elites) {
+    public int getGroupChatSize(String userId, String chatName) {
 
-        return repo.groupChatMembershipSize(userId, elites);
+        return repo.groupChatMembershipSize(userId, chatName);
     }
     @Override
     public GroupChat findGroupByNameAndUserId(String userId, String groupChatName) {
@@ -54,19 +56,19 @@ public class GroupChatServiceImpl implements GroupChatService{
     public GroupUserRemovalResponse removeGroupMember(GroupUserRemovalRequest groupUserRemovalRequest) {
         GroupChat groupChat = repo.findGroupByNameAndUserId(groupUserRemovalRequest.getAdminId(), groupUserRemovalRequest.getGroupName());
 
-        List<UserInterface> groupChatUsers = groupChat.viewGroupMembers();
+        List<String> groupChatUsers = groupChat.viewGroupMembers();
 
         GroupUserRemovalResponse groupUserRemovalResponse = new GroupUserRemovalResponse();
 
         for (int posistion = 0; posistion <groupChatUsers.size(); posistion++) {
 
-            if (groupChatUsers.get(posistion).getUserId().equals(groupUserRemovalRequest.getMemberToRemoveId())){
-                UserInterface actualUserToRemove = groupChatUsers.get(posistion);
+            if (groupChatUsers.get(posistion).equals(groupUserRemovalRequest.getMemberToRemoveId())){
+                UserInterface actualUserToRemove = userService.findUserById( groupChatUsers.get(posistion));
 
                 groupUserRemovalResponse.setUserName(actualUserToRemove.getFullName());
                 groupUserRemovalResponse.setMessage("Has been removed");
 
-                groupChat.viewGroupMembers().remove(actualUserToRemove);
+
                 groupChatUsers.remove(posistion);
 
                 return groupUserRemovalResponse;
@@ -78,7 +80,7 @@ public class GroupChatServiceImpl implements GroupChatService{
 
     @Override
     public int groupChatMembershipSize(String userId, String groupChatName) {
-        UserInterface user = findUserById(userId);
+
         return repo.groupChatMembershipSize(userId, groupChatName);
     }
 

@@ -10,7 +10,7 @@ import model.users.UserInterface;
 import java.util.List;
 
 public interface GroupChatService {
-    GroupCreationResponse createGroupChat(CreateGroupChatRequest createGroupChatRequest, List<UserInterface> users);
+    GroupCreationResponse createGroupChat(CreateGroupChatRequest createGroupChatRequest, List<String> users);
 
     int getGroupChatSize(String userId, String elites);
 

@@ -7,12 +7,14 @@ import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
 import model.Message;
 
+import model.chat.ChatInterface;
 import model.chat.GroupChat;
 import model.users.UserInterface;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repositories.UserRepositoryImpl;
 import repositories.UserRepositoryInterface;
+import services.GroupChatService;
 import services.UserService;
 import services.UserServiceImpl;
 
@@ -22,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class test {
     UserService userService;
-    UserRepositoryInterface repo;
+
     UserRegistrationRequest userReg;
     UserRegistrationRequest userReg2;
     UserRegistrationRequest userReg3;
@@ -40,8 +42,8 @@ public class test {
 
     @BeforeEach
     void setUp(){
-        repo = new UserRepositoryImpl() ;
-        userService = new UserServiceImpl(repo);
+
+        userService = new UserServiceImpl();
 
         chatRequest1 = new ChatRequest();
         chatRequest2 = new ChatRequest();
@@ -62,13 +64,13 @@ public class test {
         userRegRes2 = userService.userSignUp(userReg2);
          userRegRes3 =  userService.userSignUp(userReg3);
 
-       user1 = repo.findUserById(userRegRes.getUserId());
-       user2 = repo.findUserById(userRegRes2.getUserId());
-        user3 = repo.findUserById(userRegRes3.getUserId());
+       user1 = userService.findUserById(userRegRes.getUserId());
+       user2 = userService.findUserById(userRegRes2.getUserId());
+        user3 = userService.findUserById(userRegRes3.getUserId());
 
         createGroupChatRequest = new CreateGroupChatRequest();
         createGroupChatRequest.makeAdmin(user1.getUserId());
-        createGroupChatRequest.addGroupMember(user1.getUserId());
+//        createGroupChatRequest.addGroupMember(user1.getUserId());
         createGroupChatRequest.addGroupMember(user2.getUserId());
         createGroupChatRequest.addGroupMember(user3.getUserId());
         createGroupChatRequest.setGroupName("elites");
@@ -81,11 +83,12 @@ public class test {
     }
     @Test
     void confirmSignUp(){
+
         String first = "User id is : "+ userRegRes.getUserId() + "\nFull name is : "
                 + userReg.getFullName()+ "\n" +  "SignUp successful!\n";
         String second = "User id is : "+ userRegRes2.getUserId() + "\nFull name is : "
                 + userReg2.getFullName()+ "\n" +  "SignUp successful!\n";
-        System.out.println(second);
+
         assertEquals(String.valueOf(userRegRes),first);
         assertEquals(String.valueOf(userRegRes2),second);
 
@@ -312,14 +315,12 @@ public class test {
 
         String expected = "The group :" +
                 groupCreationMessage.getGroupName() + '\'' +
-                ", " + groupCreationMessage.getGroupChatId() + '\'' +
-                "is created successfully";
+                ", " + groupChat.getChatId() + '\'' +
+                " was created successfully";
 
         assertEquals( expected, String.valueOf(groupCreationMessage));
 
-
         assertEquals(groupCreationMessage.getGroupChatId(), groupChat.getChatId());
-
 
         assertEquals(3, userService.getGroupChatSize(user1.getUserId(), "elites"));
         assertEquals(3, userService.getGroupChatSize(user2.getUserId(), "elites"));
@@ -340,12 +341,16 @@ public class test {
         GroupUserRemovalResponse response = userService.removeGroupMember(groupUserRemovalRequest);
        String expected = user3.getFullName() + " " + "Has been removed";
 
-//       assertEquals(expected, String.valueOf(response));
 
         assertEquals(2, userService.getGroupChatSize(user2.getUserId(), "elites"));
         assertEquals(2, userService.getGroupChatSize(user1.getUserId(), "elites"));
 
         assertNotEquals(2, userService.getGroupChatSize(user3.getUserId(), "elites"));
+    }
+    @Test
+    public void testGroupChatHasAdminWithoutAffectingTheMembershipSize(){
+       GroupChat groupChat = userService.getGroupChat(user1.getUserId(), "elites");
+       assertEquals(user1.getUserId(), groupChat.getGroupChatAdmins()[0]);
     }
 
 }

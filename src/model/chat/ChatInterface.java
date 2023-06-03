@@ -19,4 +19,6 @@ public interface ChatInterface {
 
 
     int membershipSize();
+
+
 }

@@ -8,12 +8,11 @@ import java.util.List;
 
 public class CreateGroupChatRequest {
     private List<String> membersId = new ArrayList<>();
-    private UserInterface admin;
     private String groupName;
-    private String AdminId;
+    private String adminId;
 
     public void makeAdmin(String userId) {
-        
+        this.adminId = userId;
     }
 
     public void addGroupMember(String userId) {
@@ -25,7 +24,7 @@ public class CreateGroupChatRequest {
     }
 
     public String getAdminId() {
-        return AdminId;
+        return adminId;
     }
 
     public List <String> allMembers() {

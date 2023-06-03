@@ -1,7 +1,6 @@
 package model.chat;
 
 import model.Message;
-import model.users.UserInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +9,13 @@ public class GroupChat implements ChatInterface {
     private boolean isExisting;
     private String chatId;
 
-    private List <UserInterface> members = new ArrayList<>();
+    private List <String> membersId = new ArrayList<>();
     private List <Message> messages = new ArrayList<>();
-    private UserInterface [] admin = new UserInterface[3];
+    private String [] groupChatAdminsId = new String[3];
     private String groupName;
 
-    public void makeAdmin(UserInterface user1) {
-        admin[0] = user1;
+    public void makeAdmin(String userId) {
+        groupChatAdminsId[0] = userId;
     }
 
     @Override
@@ -44,8 +43,8 @@ public class GroupChat implements ChatInterface {
         return messages;
     }
 
-    public List<UserInterface> viewGroupMembers() {
-        return members;
+    public List<String> viewGroupMembers() {
+        return membersId;
     }
     @Override
     public String getChatId() {
@@ -59,14 +58,13 @@ public class GroupChat implements ChatInterface {
         return groupName;
     }
 
-    public void addMembers(List <UserInterface> members) {
-        for(UserInterface user : members) this.members.add(user);
-
+    public void addMembers(List <String> newMembersId) {
+        for(String user : newMembersId) this.membersId.add(user);
 
     }
     public int membershipSize(){
 
-        return  members.size();
+        return  membersId.size();
     }
 
     @Override
@@ -81,4 +79,7 @@ public class GroupChat implements ChatInterface {
     }
 
 
+    public String[] getGroupChatAdmins() {
+        return groupChatAdminsId;
+    }
 }

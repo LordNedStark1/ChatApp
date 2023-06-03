@@ -1,7 +1,8 @@
 package services;
 
 
-import AppUtils.GenerateId;
+import AppUtils.Generator;
+import AppUtils.Mapper;
 import dto.request.ChatRequest;
 import dto.request.CreateGroupChatRequest;
 import dto.request.GroupUserRemovalRequest;
@@ -12,16 +13,15 @@ import dto.response.UserRegistrationResponse;
 
 import exceptions.UserNotFoundException;
 import model.Message;
-import model.chat.Chat;
 import model.chat.ChatInterface;
 
 import model.chat.GroupChat;
 import model.users.User;
 import model.users.UserInterface;
+import repositories.UserRepositoryImpl;
 import repositories.UserRepositoryInterface;
 
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,54 +31,31 @@ public class UserServiceImpl implements UserService {
 
     private static final GroupChatServiceImpl groupChatService = new GroupChatServiceImpl();
 
-    private final UserRepositoryInterface repo;
+    private static final UserRepositoryInterface repo = new UserRepositoryImpl();
 
-    private PrivateChatServiceInterface chatServiceInterface = new PrivateChatServiceImpl();
-    PrivateChatServiceInterface privateChatServiceInterface = new PrivateChatServiceImpl();
+    private static final PrivateChatServiceInterface chatServiceInterface = new PrivateChatServiceImpl();
+    private static final PrivateChatServiceInterface privateChatServiceInterface = new PrivateChatServiceImpl();
 
-    public UserServiceImpl(UserRepositoryInterface repo ){
-        this.repo = repo;
-    }
-    public UserRepositoryInterface getRepo(){
+
+    public static UserRepositoryInterface getUserRepo(){
         return repo;
     }
     @Override
     public UserRegistrationResponse userSignUp(UserRegistrationRequest userRegistrationRequest) {
 
-        User user = new User(repo);
-        UserRegistrationResponse userResponse = new UserRegistrationResponse();
-
-        successfulUserSignUp(userRegistrationRequest, user);
+        User user = Mapper.map(userRegistrationRequest);
 
         repo.saveNewUser(user);
 
-        successfulSignUpResponse(userRegistrationRequest, user, userResponse);
+        UserRegistrationResponse userResponse = Mapper.map(user);
 
 
         return userResponse;
     }
-
-    private void successfulSignUpResponse(UserRegistrationRequest userRegistrationRequest, User user, UserRegistrationResponse userResponse) {
-        userResponse.setFirstName(userRegistrationRequest.getFirstName());
-        userResponse.setLastName(userRegistrationRequest.getLastName());
-        userResponse.setFullName(userRegistrationRequest.getFullName());
-        userResponse.setMessage(1);
-        userResponse.setUserId(user.getUserId());
-    }
-
-    private void successfulUserSignUp(UserRegistrationRequest userRegistrationRequest, User user) {
-        user.setFirstName(userRegistrationRequest.getFirstName());
-        user.setLastName(userRegistrationRequest.getLastName());
-        user.setPhoneNumber(userRegistrationRequest.getPhoneNumber());
-        user.setEmailAddress(userRegistrationRequest.getEmailAddress());
-        user.setUserId(generateId());
-        user.setExisting(true);
-    }
-
     private String generateId() {
-        return GenerateId.generateId();
+        return Generator.generateId();
     }
-    private UserInterface findUserById(String userId){
+    public UserInterface findUserById(String userId){
        return repo.findUserById(userId);
     }
     @Override
@@ -121,20 +98,26 @@ public class UserServiceImpl implements UserService {
     public GroupCreationResponse createGroupChat(CreateGroupChatRequest createGroupChatRequest) {
 
         UserInterface user1 = findUserById(createGroupChatRequest.getAdminId());
+        if(user1.isExisting()) {
+            List<String> users = new ArrayList<>();
+            users.add(user1.getUserId());
 
-        List<UserInterface> users = new ArrayList<>();
-        users.add(user1);
+            for (String userId : createGroupChatRequest.allMembers())
+                if (findUserById(userId).isExisting())
+                    users.add(findUserById(userId).getUserId());
 
-        for (String userId : createGroupChatRequest.allMembers()) users.add(findUserById(userId));
+            return groupChatService.createGroupChat(createGroupChatRequest, users);
+        }
+        GroupCreationResponse groupCreationResponse = new GroupCreationResponse();
+        groupCreationResponse.setMessage("was not created successfully");
 
-       return groupChatService.createGroupChat(createGroupChatRequest, users);
-
+        return groupCreationResponse;
     }
 
     @Override
-    public int getGroupChatSize(String userId, String elites) {
+    public int getGroupChatSize(String userId, String chatName) {
 
-        return groupChatService.groupChatMembershipSize(userId, elites);
+        return groupChatService.groupChatMembershipSize(userId, chatName);
     }
 
     @Override
@@ -144,32 +127,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public GroupUserRemovalResponse removeGroupMember(GroupUserRemovalRequest groupUserRemovalRequest) {
-        GroupChat groupChat = groupChatService.findGroupByNameAndUserId(groupUserRemovalRequest.getAdminId(), groupUserRemovalRequest.getGroupName());
 
-        UserInterface userToRemove = repo.findUserById(groupUserRemovalRequest.getMemberToRemoveId());
-
-        GroupUserRemovalResponse groupUserRemovalResponse = new GroupUserRemovalResponse();
-        List <UserInterface> users = groupChat.viewGroupMembers();
-            System.out.println(groupChat.getGroupName());
-        for (int position = 0; position< users.size(); position++) {
-//            System.out.println(users.get(position).getFullName());
-            if (userToRemove.getUserId().equals(users.get(position).getUserId())) {
-
-                UserInterface actualUserToRemove = users.get(position);
-
-                groupUserRemovalResponse.setUserName(actualUserToRemove.getFullName());
-                groupUserRemovalResponse.setMessage("Has been removed");
-
-                groupChat.viewGroupMembers().remove(actualUserToRemove);
-                System.out.println("after removal\n");
-                groupChat.viewGroupMembers().forEach(System.out::println);
-
-                return groupUserRemovalResponse;
-
-            }
-
-        }
-        return groupUserRemovalResponse;
+        return groupChatService.removeGroupMember(groupUserRemovalRequest);
     }
 
     @Override

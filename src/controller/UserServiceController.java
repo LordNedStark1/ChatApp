@@ -9,17 +9,24 @@ import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
 import model.Message;
 import model.chat.GroupChat;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import repositories.UserRepositoryImpl;
 import repositories.UserRepositoryInterface;
 import services.UserServiceImpl;
 
 import java.util.List;
 
-public class UserServiceController {
-    UserRepositoryInterface repo = new UserRepositoryImpl();
-    UserServiceImpl userService = new UserServiceImpl(repo);
 
-    UserRegistrationResponse userSignUp(UserRegistrationRequest userRegistrationRequest){
+@RestController
+@RequestMapping("/user")
+public class UserServiceController {
+
+    UserServiceImpl userService = new UserServiceImpl();
+
+    @PostMapping("/signUp")
+    public UserRegistrationResponse userSignUp(UserRegistrationRequest userRegistrationRequest){
         return userService.userSignUp(userRegistrationRequest);
     }
     String chat(ChatRequest chatRequest){

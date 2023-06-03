@@ -2,7 +2,7 @@ package AppUtils;
 
 import java.security.SecureRandom;
 
-public class GenerateId {
+public class Generator {
     private static final SecureRandom random = new SecureRandom();
     private static long idCounter;
     public static final String generateId(){

@@ -12,15 +12,16 @@ public class GroupChatRepositoryImpl implements GroupChatRepositoryInterface {
     public void saveNewGroupChat(GroupChat groupChat) {
         groupChats.add(groupChat);
     }
-    public GroupChat findGroupByNameAndUserId( String chatName, String userId) {
+    public GroupChat findGroupByNameAndUserId( String userId, String chatName) {
 
         GroupChat foundChat = new GroupChat();
 
+
         for (GroupChat groupChat : groupChats) {
-//            System.out.println(groupChat);
+
             if ((groupChat.getGroupName().equals( chatName))) {
-                System.out.println(groupChat.viewGroupMembers());
-                if (groupChat.viewGroupMembers().contains(user)) {
+
+                if (groupChat.viewGroupMembers().contains(userId)) {
                     foundChat = groupChat;
 //                    System.out.println(foundChat);
                 }
@@ -39,7 +40,7 @@ public class GroupChatRepositoryImpl implements GroupChatRepositoryInterface {
     }
     @Override
     public int groupChatMembershipSize(String userId, String chatName) {
-        GroupChat groupChat = findGroupByNameAndUserId( chatName, userId);
+        GroupChat groupChat = findGroupByNameAndUserId( userId, chatName);
         return groupChat.membershipSize();
 //        GroupChat group = findGroupByUserIdAndName(chatName, userId);
 //        System.out.println(group);

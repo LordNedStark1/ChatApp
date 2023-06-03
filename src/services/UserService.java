@@ -10,6 +10,7 @@ import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
 import model.Message;
 import model.chat.GroupChat;
+import model.users.UserInterface;
 
 
 import java.util.List;
@@ -27,4 +28,6 @@ public interface UserService {
     GroupChat getGroupChat(String userId, String chatName);
 
     GroupUserRemovalResponse removeGroupMember(GroupUserRemovalRequest groupUserRemovalRequest);
+
+    UserInterface findUserById(String s);
 }
