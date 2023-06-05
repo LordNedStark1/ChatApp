@@ -9,6 +9,7 @@ import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
 import model.Message;
 import model.chat.GroupChat;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,10 @@ public class UserServiceController {
     }
     String chat(ChatRequest chatRequest){
         return userService.chat(chatRequest);
+    }
+    @GetMapping("/get")
+    public String hell0(){
+        return "hello";
     }
     List<Message> viewChat(String receiverId, String senderId){
         return userService.viewChat(receiverId, senderId);

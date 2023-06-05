@@ -43,6 +43,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserRegistrationResponse userSignUp(UserRegistrationRequest userRegistrationRequest) {
 
+//        userValidation(/
+
         User user = Mapper.map(userRegistrationRequest);
 
         repo.saveNewUser(user);
