@@ -352,5 +352,8 @@ public class test {
        GroupChat groupChat = userService.getGroupChat(user1.getUserId(), "elites");
        assertEquals(user1.getUserId(), groupChat.getGroupChatAdmins()[0]);
     }
+    @Test
+    public void testGroupChat(){
 
+    }
 }
