@@ -3,13 +3,9 @@ package dto.request;
 import lombok.Data;
 
 @Data
-public class ChatRequest {
+public class ChatRoomChatRequest {
+    private String groupChatId;
+    private String groupChatName;
     private String senderId;
-    private String receivingId;
     private String rawMessage;
-
-
-
-
-
 }

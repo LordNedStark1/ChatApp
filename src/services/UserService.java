@@ -1,10 +1,7 @@
 package services;
 
 
-import dto.request.ChatRequest;
-import dto.request.CreateGroupChatRequest;
-import dto.request.GroupUserRemovalRequest;
-import dto.request.UserRegistrationRequest;
+import dto.request.*;
 import dto.response.GroupCreationResponse;
 import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
@@ -30,4 +27,6 @@ public interface UserService {
     GroupUserRemovalResponse removeGroupMember(GroupUserRemovalRequest groupUserRemovalRequest);
 
     UserInterface findUserById(String s);
+
+    void chat(ChatRoomChatRequest chatRoomChatRequest);
 }

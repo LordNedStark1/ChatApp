@@ -1,7 +1,4 @@
-import dto.request.ChatRequest;
-import dto.request.CreateGroupChatRequest;
-import dto.request.GroupUserRemovalRequest;
-import dto.request.UserRegistrationRequest;
+import dto.request.*;
 import dto.response.GroupCreationResponse;
 import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
@@ -353,7 +350,20 @@ public class test {
        assertEquals(user1.getUserId(), groupChat.getGroupChatAdmins()[0]);
     }
     @Test
-    public void testGroupChat(){
+    public void testThatOnlyMembersOfGroupChatCanViewTheSameMessage(){
+        userRegRes = userService.userSignUp(userReg);
+        String firstMessageToSend = "Bother for  nothing, the world is yours." +
+                "\nBelieve in yourself\nlife is all we have";
+
+        ChatRoomChatRequest chatRoomChatRequest = new ChatRoomChatRequest();
+
+        chatRoomChatRequest.setSenderId(user1.getUserId());
+        chatRoomChatRequest.setGroupChatId(groupChat.getChatId());
+        chatRoomChatRequest.setGroupChatName(groupChat.getGroupName());
+        chatRoomChatRequest.setRawMessage(firstMessageToSend);
+
+        userService.chat(chatRoomChatRequest);
+
 
     }
 }
