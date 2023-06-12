@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="" />
+    <list default="true" id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/GroupChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,9 +95,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="dto.request" />
       <recent name="exceptions" />
       <recent name="dto.response" />
-      <recent name="dto.request" />
       <recent name="model.users" />
       <recent name="model" />
     </key>
@@ -104,7 +110,7 @@
       <recent name="dto.request" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Main">
+  <component name="RunManager" selected="JUnit.test.testThatNewMembersCanBeAddedToGroupChatByAdmin">
     <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
@@ -124,21 +130,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.createGroupChatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ChatApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="createGroupChatTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="test.testGroupChatHasAdminWithoutAffectingTheMembershipSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
       <option name="METHOD_NAME" value="testGroupChatHasAdminWithoutAffectingTheMembershipSize" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.testThatNewMembersCanBeAddedToGroupChatByAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChatApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="METHOD_NAME" value="testThatNewMembersCanBeAddedToGroupChatByAdmin" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test.testThatNewMembersCanBeAddedToGroupChatByAdmin" />
         <item itemvalue="Spring Boot.Main" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testGroupChatHasAdminWithoutAffectingTheMembershipSize" />
         <item itemvalue="JUnit.test.chatOnceWithoutNullPointerOnChat" />
-        <item itemvalue="JUnit.test.createGroupChatTest" />
       </list>
     </recent_temporary>
   </component>
@@ -251,7 +257,7 @@
       <workItem from="1686126708587" duration="764000" />
       <workItem from="1686470795334" duration="705000" />
       <workItem from="1686510313159" duration="451000" />
-      <workItem from="1686555261533" duration="426000" />
+      <workItem from="1686555261533" duration="7507000" />
     </task>
     <servers />
   </component>

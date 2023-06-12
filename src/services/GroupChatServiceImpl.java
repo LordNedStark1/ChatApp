@@ -1,7 +1,9 @@
 package services;
 
 import AppUtils.Generator;
+import dto.request.ChatRoomChatRequest;
 import dto.request.CreateGroupChatRequest;
+import dto.request.GroupChatUpDateRequest;
 import dto.request.GroupUserRemovalRequest;
 import dto.response.GroupCreationResponse;
 import dto.response.GroupUserRemovalResponse;
@@ -47,6 +49,23 @@ public class GroupChatServiceImpl implements GroupChatService{
     public GroupChat findGroupByNameAndUserId(String userId, String groupChatName) {
         return repo.findGroupByNameAndUserId(userId, groupChatName);
     }
+
+    @Override
+    public void updateGroupChat(GroupChatUpDateRequest groupChatUpDateRequest) {
+        GroupChat groupChat = repo.findGroupChatByName(groupChatUpDateRequest.getGroupChatName());
+        UserInterface admin = userService.findUserById(groupChatUpDateRequest.getAdminId());
+        UserInterface userToAdd = userService.findUserById(groupChatUpDateRequest.getUserToAddId());
+
+        if(groupChat != null && groupChat.isExisting() && userToAdd != null && admin != null){
+            for (int i = 0; i < groupChat.getGroupChatAdmins().length; i++) {
+                System.out.println(admin.getUserId());
+                if (groupChat.getGroupChatAdmins()[i].equals( admin.getUserId())){
+                    groupChat.viewGroupMembers().add(userToAdd.getUserId());
+                }
+            }
+        }
+    }
+
     @Override
     public GroupChat getGroupChat(String userId, String chatName) {
         return repo.findGroupByNameAndUserId(userId, chatName);
@@ -85,5 +104,6 @@ public class GroupChatServiceImpl implements GroupChatService{
     }
 
 
-
+    public void chat(ChatRoomChatRequest chatRoomChatRequest) {
+    }
 }

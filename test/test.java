@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import repositories.UserRepositoryImpl;
 import repositories.UserRepositoryInterface;
 import services.GroupChatService;
+import services.GroupChatServiceImpl;
 import services.UserService;
 import services.UserServiceImpl;
 
@@ -36,6 +37,7 @@ public class test {
     CreateGroupChatRequest createGroupChatRequest;
     GroupCreationResponse groupCreationMessage;
     GroupChat groupChat;
+    GroupChatUpDateRequest groupChatUpDateRequest;
 
     @BeforeEach
     void setUp(){
@@ -350,10 +352,40 @@ public class test {
        assertEquals(user1.getUserId(), groupChat.getGroupChatAdmins()[0]);
     }
     @Test
-    public void testThatOnlyMembersOfGroupChatCanViewTheSameMessage(){
+    public void testThatNewMembersCanBeAddedToGroupChatByAdmin(){
+        userReg = new UserRegistrationRequest();
+        userReg.setFirstName("Doris");
+        userReg.setLastName("Eb");
+
         userRegRes = userService.userSignUp(userReg);
-        String firstMessageToSend = "Bother for  nothing, the world is yours." +
-                "\nBelieve in yourself\nlife is all we have";
+        UserInterface userToAdd = userService.findUserById(userRegRes2.getUserId());
+
+        groupChatUpDateRequest = new GroupChatUpDateRequest();
+        groupChatUpDateRequest.setAdminId(user1.getUserId());
+        groupChatUpDateRequest.setGroupChatName("elites");
+        groupChatUpDateRequest.setUserToAddId(userToAdd.getUserId());
+
+        GroupChatService groupChatService = new GroupChatServiceImpl();
+        groupChatService.updateGroupChat(groupChatUpDateRequest);
+        GroupChat groupChat = groupChatService.getGroupChat(user1.getUserId(),"elites");
+
+        assertEquals(4, groupChat.membershipSize());
+
+
+
+    }
+    @Test
+    public void testThatOnlyMembersOfGroupChatCanViewTheSameMessage(){
+        userReg = new UserRegistrationRequest();
+        userReg.setFirstName("Doris");
+        userReg.setLastName("Eb");
+
+        userRegRes = userService.userSignUp(userReg);
+
+        String firstMessageToSend = """
+                Bother for  nothing, the world is yours.
+                Believe in yourself
+                life is all we have""";
 
         ChatRoomChatRequest chatRoomChatRequest = new ChatRoomChatRequest();
 
@@ -362,8 +394,7 @@ public class test {
         chatRoomChatRequest.setGroupChatName(groupChat.getGroupName());
         chatRoomChatRequest.setRawMessage(firstMessageToSend);
 
-        userService.chat(chatRoomChatRequest);
-
+         userService.chat(chatRoomChatRequest);
 
     }
 }

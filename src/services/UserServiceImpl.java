@@ -3,10 +3,7 @@ package services;
 
 import AppUtils.Generator;
 import AppUtils.Mapper;
-import dto.request.ChatRequest;
-import dto.request.CreateGroupChatRequest;
-import dto.request.GroupUserRemovalRequest;
-import dto.request.UserRegistrationRequest;
+import dto.request.*;
 import dto.response.GroupCreationResponse;
 import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
@@ -60,6 +57,12 @@ public class UserServiceImpl implements UserService {
     public UserInterface findUserById(String userId){
        return repo.findUserById(userId);
     }
+
+    @Override
+    public void chat(ChatRoomChatRequest chatRoomChatRequest) {
+        groupChatService.chat(chatRoomChatRequest);
+    }
+
     @Override
     public String chat(ChatRequest chatRequest) {
 
