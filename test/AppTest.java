@@ -4,13 +4,10 @@ import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
 import model.Message;
 
-import model.chat.ChatInterface;
 import model.chat.GroupChat;
 import model.users.UserInterface;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import repositories.UserRepositoryImpl;
-import repositories.UserRepositoryInterface;
+import org.junit.jupiter.api.Test;;
 import services.GroupChatService;
 import services.GroupChatServiceImpl;
 import services.UserService;
@@ -20,7 +17,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class test {
+public class AppTest {
     UserService userService;
 
     UserRegistrationRequest userReg;
@@ -209,8 +206,10 @@ public class test {
     }
     @Test
     void UserCanReplyEachOther(){
-        String firstMessageToSend = "Bother for  nothing, the world is yours." +
-                "\nBelieve in yourself\nlife is all we have";
+        String firstMessageToSend = """
+                Bother for  nothing, the world is yours.
+                Believe in yourself
+                life is all we have""";
 
         chatRequest1.setSenderId(user1.getUserId());
         chatRequest1.setReceivingId(user2.getUserId());
@@ -245,8 +244,10 @@ public class test {
         assertEquals(2, secondReceivedMessage.size());
         assertEquals(secondMessageToAssert, String.valueOf(secondMessage));
 
-        String thirdMessageToSend = "This is the third chat, the world is yours." +
-                "\nBelieve in yourself\nlife is all we have";
+        String thirdMessageToSend = """
+                This is the third chat, the world is yours.
+                Believe in yourself
+                life is all we have""";
 
         chatRequest1.setSenderId(user1.getUserId());
         chatRequest1.setReceivingId(user2.getUserId());
@@ -265,8 +266,10 @@ public class test {
         assertEquals(thirdMessageToAssert, String.valueOf(thirdMessage));
 
 
-        String forthMessageToSend = "This is the third chat, the world is yours." +
-                "\nBelieve in yourself\nlife is all we have";
+        String forthMessageToSend = """
+                This is the third chat, the world is yours.
+                Believe in yourself
+                life is all we have""";
 
         chatRequest1.setSenderId(user2.getUserId());
         chatRequest1.setReceivingId(user1.getUserId());
@@ -286,8 +289,10 @@ public class test {
     }
     @Test
     void testThatBothUsersCanViewTheSameMessage(){
-        String firstMessageToSend = "Bother for  nothing, the world is yours." +
-                "\nBelieve in yourself\nlife is all we have";
+        String firstMessageToSend = """
+                Bother for  nothing, the world is yours.
+                Believe in yourself
+                life is all we have""";
 
         chatRequest1.setSenderId(user1.getUserId());
         chatRequest1.setReceivingId(user2.getUserId());
@@ -349,6 +354,7 @@ public class test {
     @Test
     public void testGroupChatHasAdminWithoutAffectingTheMembershipSize(){
        GroupChat groupChat = userService.getGroupChat(user1.getUserId(), "elites");
+
        assertEquals(user1.getUserId(), groupChat.getGroupChatAdmins()[0]);
     }
     @Test
@@ -357,8 +363,55 @@ public class test {
         userReg.setFirstName("Doris");
         userReg.setLastName("Eb");
 
-        userRegRes = userService.userSignUp(userReg);
-        UserInterface userToAdd = userService.findUserById(userRegRes2.getUserId());
+        UserRegistrationResponse userToAddRegRes = userService.userSignUp(userReg);
+        UserInterface userToAdd = userService.findUserById(userToAddRegRes.getUserId());
+
+        groupChatUpDateRequest = new GroupChatUpDateRequest();
+        groupChatUpDateRequest.setAdminId(user1.getUserId());
+        groupChatUpDateRequest.setGroupChatName("elites");
+        groupChatUpDateRequest.setUserToAddId(userToAdd.getUserId());
+
+        GroupChatService groupChatService = new GroupChatServiceImpl();
+        groupChatService.updateGroupChat(groupChatUpDateRequest);
+        GroupChat groupChat = groupChatService.getGroupChat(user1.getUserId(),"elites");
+
+        for (String userId: groupChat.viewGroupMembers()){
+            if (userId.equals(userToAddRegRes.getUserId())) System.out.println("am here line 382");
+        }
+
+        assertEquals(4, groupChat.membershipSize());
+    }
+    @Test
+    public void testThatNullUsersAreNotAddedToGroupChat(){
+
+        UserInterface userToAdd = userService.findUserById("testId");
+
+        groupChatUpDateRequest = new GroupChatUpDateRequest();
+        groupChatUpDateRequest.setAdminId(user1.getUserId());
+        groupChatUpDateRequest.setGroupChatName("elites");
+        groupChatUpDateRequest.setUserToAddId(userToAdd.getUserId());
+
+        GroupChatService groupChatService = new GroupChatServiceImpl();
+        groupChatService.updateGroupChat(groupChatUpDateRequest);
+        GroupChat groupChat = groupChatService.getGroupChat(user1.getUserId(),"elites");
+
+        assertEquals(3, groupChat.membershipSize());
+    }
+    @Test
+    public void testThatOnlyMembersOfGroupChatCanViewTheSameMessage(){
+        userReg = new UserRegistrationRequest();
+        userReg.setFirstName("Doris");
+        userReg.setLastName("Eb");
+
+        UserRegistrationResponse userToAddRegRes = userService.userSignUp(userReg);
+        UserInterface userToAdd = userService.findUserById(userToAddRegRes.getUserId());
+
+        userReg = new UserRegistrationRequest();
+        userReg.setFirstName("mark");
+        userReg.setLastName("apollo");
+
+        UserRegistrationResponse userNotAddedTOGroupResponse = userService.userSignUp(userReg);
+        UserInterface userNotToAdd = userService.findUserById(userNotAddedTOGroupResponse.getUserId());
 
         groupChatUpDateRequest = new GroupChatUpDateRequest();
         groupChatUpDateRequest.setAdminId(user1.getUserId());
@@ -370,17 +423,6 @@ public class test {
         GroupChat groupChat = groupChatService.getGroupChat(user1.getUserId(),"elites");
 
         assertEquals(4, groupChat.membershipSize());
-
-
-
-    }
-    @Test
-    public void testThatOnlyMembersOfGroupChatCanViewTheSameMessage(){
-        userReg = new UserRegistrationRequest();
-        userReg.setFirstName("Doris");
-        userReg.setLastName("Eb");
-
-        userRegRes = userService.userSignUp(userReg);
 
         String firstMessageToSend = """
                 Bother for  nothing, the world is yours.
@@ -395,6 +437,57 @@ public class test {
         chatRoomChatRequest.setRawMessage(firstMessageToSend);
 
          userService.chat(chatRoomChatRequest);
+        Message message1 = userService.readGroupChatMessage(userToAdd.getUserId(), "elites").get(0);
+        Message message2 = userService.readGroupChatMessage(user3.getUserId(), "elites").get(0);
+        Message message3 = userService.readGroupChatMessage(userToAdd.getUserId(), "elites").get(0);
+        Message message4 = userService.readGroupChatMessage(userNotToAdd.getUserId(), "elites").get(0);
 
+        for (String userId: groupChat.viewGroupMembers()){
+            if (userId.equals(userNotToAdd.getUserId())) System.out.println("am here line 439");
+        }
+
+         assertEquals(firstMessageToSend, message1.getMessage() );
+         assertEquals(firstMessageToSend, message2.getMessage() );
+         assertEquals(firstMessageToSend, message3.getMessage() );
+         assertNotEquals(firstMessageToSend, message4.getMessage() );
+
+    }
+    @Test
+    public void testThatGroupMembersAreNotifiedForEveryNewMessage(){
+        String firstMessageToSend = """
+                Bother for  nothing, the world is yours.
+                Believe in yourself
+                life is all we have""";
+
+        ChatRoomChatRequest chatRoomChatRequest = new ChatRoomChatRequest();
+
+        chatRoomChatRequest.setSenderId(user1.getUserId());
+        chatRoomChatRequest.setGroupChatId(groupChat.getChatId());
+        chatRoomChatRequest.setGroupChatName(groupChat.getGroupName());
+        chatRoomChatRequest.setRawMessage(firstMessageToSend);
+
+        userService.chat(chatRoomChatRequest);
+        String notification = user1.getFullName() + " posted on " + groupChat.getGroupName();
+
+        assertEquals(notification, userService.viewNotification(user2.getUserId()).get(0).getNotificationMessage());
+        assertTrue( userService.viewNotification(user2.getUserId()).get(0).isNotRead());
+        assertEquals(1, userService.viewTotalNumberOfNotifications(user2.getUserId()));
+        assertEquals(1, userService.viewTotalNumberOfNotifications(user2.getUserId(), groupChat.getChatId()));
+    }
+    @Test
+    public void testThatNotificationIsTurnedOffWhenMessageIsRead(){
+        String firstMessageToSend = """
+                Bother for  nothing, the world is yours.
+                Believe in yourself
+                life is all we have""";
+
+        ChatRoomChatRequest chatRoomChatRequest = new ChatRoomChatRequest();
+
+        chatRoomChatRequest.setSenderId(user1.getUserId());
+        chatRoomChatRequest.setGroupChatId(groupChat.getChatId());
+        chatRoomChatRequest.setGroupChatName(groupChat.getGroupName());
+        chatRoomChatRequest.setRawMessage(firstMessageToSend);
+
+        userService.chat(chatRoomChatRequest);
     }
 }

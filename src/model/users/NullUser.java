@@ -1,9 +1,13 @@
 package model.users;
 
+import model.ChatNotification;
 import model.chat.Chat;
 import model.chat.ChatInterface;
 import model.chat.GroupChat;
 import model.chat.NullChat;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NullUser implements UserInterface{
 
@@ -20,6 +24,22 @@ public class NullUser implements UserInterface{
     @Override
     public String getUserId() {
         return "User not found!";
+    }
+
+    @Override
+    public void notifyMeAbout(ChatNotification groupChatNotification) {
+
+    }
+
+    @Override
+    public List<ChatNotification> getNotifications() {
+
+        List<ChatNotification> notifications = new ArrayList<>();
+        ChatNotification chatNotification = new ChatNotification();
+        chatNotification.setNotificationMessage( "User not found!");
+        notifications.add(chatNotification);
+
+        return notifications;
     }
 
 

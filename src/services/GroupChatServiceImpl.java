@@ -7,7 +7,10 @@ import dto.request.GroupChatUpDateRequest;
 import dto.request.GroupUserRemovalRequest;
 import dto.response.GroupCreationResponse;
 import dto.response.GroupUserRemovalResponse;
+import model.ChatNotification;
+import model.Message;
 import model.chat.GroupChat;
+import model.chat.NullChat;
 import model.users.UserInterface;
 import repositories.GroupChatRepositoryImpl;
 import repositories.GroupChatRepositoryInterface;
@@ -56,14 +59,38 @@ public class GroupChatServiceImpl implements GroupChatService{
         UserInterface admin = userService.findUserById(groupChatUpDateRequest.getAdminId());
         UserInterface userToAdd = userService.findUserById(groupChatUpDateRequest.getUserToAddId());
 
-        if(groupChat != null && groupChat.isExisting() && userToAdd != null && admin != null){
+        String nullChat = "Chat does not exist";
+        String nullUser = "User not found!";
+
+        if(!(groupChat.getChatId().equals(nullChat))
+                && groupChat.isExisting()
+                && (!userToAdd.getUserId().equals(nullUser))
+                && (!admin.getUserId().equals(nullUser))){
+
             for (int i = 0; i < groupChat.getGroupChatAdmins().length; i++) {
-                System.out.println(admin.getUserId());
-                if (groupChat.getGroupChatAdmins()[i].equals( admin.getUserId())){
-                    groupChat.viewGroupMembers().add(userToAdd.getUserId());
+
+                String groupAdminId = groupChat.getGroupChatAdmins()[i];
+                if (groupAdminId != null) {
+                    if (groupAdminId.equals(admin.getUserId())) {
+
+                        groupChat.viewGroupMembers().add(userToAdd.getUserId());
+//                        repo.saveNewGroupChat(groupChat);
+                        break;
+                    }
                 }
             }
         }
+    }
+
+    @Override
+    public List<Message> readGroupChatMessage(String userId, String elites) {
+        GroupChat groupChat = repo.findGroupChatByName("elites");
+        for (String groupChatMembersId : groupChat.viewGroupMembers()){
+            if (groupChatMembersId.equals(userId)){
+                return groupChat.viewMessages();
+            }
+        }
+        return new NullChat().viewMessages();
     }
 
     @Override
@@ -103,7 +130,32 @@ public class GroupChatServiceImpl implements GroupChatService{
         return repo.groupChatMembershipSize(userId, groupChatName);
     }
 
-
     public void chat(ChatRoomChatRequest chatRoomChatRequest) {
+        GroupChat groupChat = repo.findGroupChatByName(chatRoomChatRequest.getGroupChatName());
+        UserInterface user = userService.findUserById(chatRoomChatRequest.getSenderId());
+
+        Message message = new Message();
+        message.setSenderId(user.getUserId());
+        message.setMessage(chatRoomChatRequest.getRawMessage());
+        message.setSenderName(user.getFullName());
+        message.setDateTimeSent();
+        message.setMessageId(Generator.generateId());
+
+        groupChat.addMessageToChat(message);
+
+        ChatNotification groupChatNotification = new ChatNotification();
+        groupChatNotification.setNotifiersId(user.getUserId());
+        groupChatNotification.setChatId(groupChat.getChatId());
+        groupChatNotification.setNotificationMessageId(message.getMessageId());
+        groupChatNotification.setNotificationMessage(user.getFullName() + " posted on " +groupChat.getGroupName());
+
+        String nullUser = "";
+
+        for (String userId: groupChat.viewGroupMembers()){
+            UserInterface userToNotify = userService.findUserById(userId);
+            if (!userToNotify.getUserId().equals(nullUser)){
+                userToNotify.notifyMeAbout(groupChatNotification);
+            }
+        }
     }
 }

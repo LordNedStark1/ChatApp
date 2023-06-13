@@ -9,6 +9,7 @@ import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
 
 import exceptions.UserNotFoundException;
+import model.ChatNotification;
 import model.Message;
 import model.chat.ChatInterface;
 
@@ -61,6 +62,37 @@ public class UserServiceImpl implements UserService {
     @Override
     public void chat(ChatRoomChatRequest chatRoomChatRequest) {
         groupChatService.chat(chatRoomChatRequest);
+    }
+
+    @Override
+    public List<Message> readGroupChatMessage(String userId, String elites) {
+    return groupChatService.readGroupChatMessage(userId,elites);
+    }
+
+    @Override
+    public List<ChatNotification> viewNotification(String userId) {
+        UserInterface userToNotified = repo.findUserById(userId);
+
+        return userToNotified.getNotifications();
+    }
+
+    @Override
+    public int viewTotalNumberOfNotifications(String userId) {
+
+       return viewNotification(userId).size();
+    }
+
+    @Override
+    public int viewTotalNumberOfNotifications(String userId, String chatId) {
+        int notificationCount = 0;
+
+        List<ChatNotification> notifications = viewNotification( userId);
+
+        for (ChatNotification notification : notifications) {
+            if (notification.getChatId().equals(chatId)) notificationCount ++;
+        }
+
+        return notificationCount;
     }
 
     @Override

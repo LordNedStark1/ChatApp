@@ -5,6 +5,7 @@ import dto.request.*;
 import dto.response.GroupCreationResponse;
 import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
+import model.ChatNotification;
 import model.Message;
 import model.chat.GroupChat;
 import model.users.UserInterface;
@@ -29,4 +30,12 @@ public interface UserService {
     UserInterface findUserById(String s);
 
     void chat(ChatRoomChatRequest chatRoomChatRequest);
+
+    List<Message> readGroupChatMessage(String userId, String elites);
+
+    List<ChatNotification> viewNotification(String userId);
+
+    int viewTotalNumberOfNotifications(String userId);
+
+    int viewTotalNumberOfNotifications(String userId, String chatId);
 }

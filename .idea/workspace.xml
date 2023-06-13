@@ -5,11 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/model/ChatNotification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/users/NullUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/NullUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/users/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/GroupChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/GroupChatService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/users/NullUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/users/NullUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/users/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/users/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/users/UserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GroupChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GroupChatService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GroupChatServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GroupChatServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,11 +112,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="model" />
       <recent name="dto.request" />
       <recent name="exceptions" />
       <recent name="dto.response" />
       <recent name="model.users" />
-      <recent name="model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USER\Desktop\programs\ChatApp" />
@@ -110,66 +127,63 @@
       <recent name="dto.request" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test.testThatNewMembersCanBeAddedToGroupChatByAdmin">
-    <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AppTest">
+    <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="AppTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.chatOnceWithoutNullPointerOnChat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.chatOnce" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="chatOnceWithoutNullPointerOnChat" />
+      <option name="MAIN_CLASS_NAME" value="AppTest" />
+      <option name="METHOD_NAME" value="chatOnce" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testGroupChatHasAdminWithoutAffectingTheMembershipSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.testThatGroupMembersAreNotifiedForEveryNewMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testGroupChatHasAdminWithoutAffectingTheMembershipSize" />
+      <option name="MAIN_CLASS_NAME" value="AppTest" />
+      <option name="METHOD_NAME" value="testThatGroupMembersAreNotifiedForEveryNewMessage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testThatNewMembersCanBeAddedToGroupChatByAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.testThatNewMembersCanBeAddedToGroupChatByAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="AppTest" />
       <option name="METHOD_NAME" value="testThatNewMembersCanBeAddedToGroupChatByAdmin" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.testThatOnlyMembersOfGroupChatCanViewTheSameMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="controller.Main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AppTest" />
+      <option name="METHOD_NAME" value="testThatOnlyMembersOfGroupChatCanViewTheSameMessage" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.test.testThatNewMembersCanBeAddedToGroupChatByAdmin" />
-        <item itemvalue="Spring Boot.Main" />
-        <item itemvalue="JUnit.test" />
-        <item itemvalue="JUnit.test.testGroupChatHasAdminWithoutAffectingTheMembershipSize" />
-        <item itemvalue="JUnit.test.chatOnceWithoutNullPointerOnChat" />
+        <item itemvalue="JUnit.AppTest" />
+        <item itemvalue="JUnit.AppTest.testThatGroupMembersAreNotifiedForEveryNewMessage" />
+        <item itemvalue="JUnit.AppTest.testThatOnlyMembersOfGroupChatCanViewTheSameMessage" />
+        <item itemvalue="JUnit.AppTest.chatOnce" />
+        <item itemvalue="JUnit.AppTest.testThatNewMembersCanBeAddedToGroupChatByAdmin" />
       </list>
     </recent_temporary>
   </component>
@@ -258,6 +272,10 @@
       <workItem from="1686470795334" duration="705000" />
       <workItem from="1686510313159" duration="451000" />
       <workItem from="1686555261533" duration="7507000" />
+      <workItem from="1686572014415" duration="4676000" />
+      <workItem from="1686601907883" duration="3250000" />
+      <workItem from="1686634982761" duration="5074000" />
+      <workItem from="1686644770811" duration="35000" />
     </task>
     <servers />
   </component>

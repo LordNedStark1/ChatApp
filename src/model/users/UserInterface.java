@@ -1,8 +1,11 @@
 package model.users;
 
+import model.ChatNotification;
 import model.chat.Chat;
 import model.chat.ChatInterface;
 import model.chat.GroupChat;
+
+import java.util.List;
 
 public interface UserInterface {
 
@@ -12,6 +15,10 @@ public interface UserInterface {
     String getFullName();
 
     String getUserId();
+
+    void notifyMeAbout(ChatNotification groupChatNotification);
+
+    List<ChatNotification> getNotifications();
 
 //    void addNewGroupChat(GroupChat groupChat);
 //
