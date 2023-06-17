@@ -1,9 +1,6 @@
 package model.users;
 
 import model.ChatNotification;
-import model.chat.Chat;
-import model.chat.ChatInterface;
-import model.chat.GroupChat;
 
 import java.util.List;
 
@@ -18,7 +15,7 @@ public interface UserInterface {
 
     void notifyMeAbout(ChatNotification groupChatNotification);
 
-    List<ChatNotification> getNotifications();
+    List<ChatNotification> viewNotifications();
 
 //    void addNewGroupChat(GroupChat groupChat);
 //

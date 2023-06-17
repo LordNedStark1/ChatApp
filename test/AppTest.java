@@ -469,6 +469,9 @@ public class AppTest {
         userService.chat(chatRoomChatRequest);
         String notification = user1.getFullName() + " posted on " + groupChat.getGroupName();
 
+        List<String> userIds = groupChat.viewGroupMembers();
+        int count = 0;
+
         assertEquals(notification, userService.viewNotification(user2.getUserId()).get(0).getNotificationMessage());
         assertTrue( userService.viewNotification(user2.getUserId()).get(0).isNotRead());
         assertEquals(1, userService.viewTotalNumberOfNotifications(user2.getUserId()));

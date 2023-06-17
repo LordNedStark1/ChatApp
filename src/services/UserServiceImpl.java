@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
     public List<ChatNotification> viewNotification(String userId) {
         UserInterface userToNotified = repo.findUserById(userId);
 
-        return userToNotified.getNotifications();
+        return userToNotified.viewNotifications();
     }
 
     @Override

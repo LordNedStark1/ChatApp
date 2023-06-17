@@ -12,5 +12,15 @@ public class ChatNotification {
     private boolean isNotRead = true;
     private String notifiersId;
 
-
+    @Override
+    public String toString() {
+        return "ChatNotification{" +
+                "chatId='" + chatId + '\'' +
+                ", notificationMessageId='" + notificationMessageId + '\'' +
+                ", notificationMessage='" + notificationMessage + '\'' +
+                ", date=" + date +
+                ", isNotRead=" + isNotRead +
+                ", notifiersId='" + notifiersId + '\'' +
+                '}';
+    }
 }

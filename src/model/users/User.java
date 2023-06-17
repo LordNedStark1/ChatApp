@@ -26,6 +26,11 @@ public class User implements UserInterface {
         notifications.add(groupChatNotification);
     }
 
+    @Override
+    public List<ChatNotification> viewNotifications() {
+        return notifications;
+    }
+
     public String getFullName() {
         return firstName + " " + lastName;
     }

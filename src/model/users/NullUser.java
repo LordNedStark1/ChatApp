@@ -32,7 +32,7 @@ public class NullUser implements UserInterface{
     }
 
     @Override
-    public List<ChatNotification> getNotifications() {
+    public List<ChatNotification> viewNotifications() {
 
         List<ChatNotification> notifications = new ArrayList<>();
         ChatNotification chatNotification = new ChatNotification();
