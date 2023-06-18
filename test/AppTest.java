@@ -359,9 +359,14 @@ public class AppTest {
     }
     @Test
     public void testThatNewMembersCanBeAddedToGroupChatByAdmin(){
+        GroupChatService groupChatService = new GroupChatServiceImpl();
+        GroupChat groupChat = groupChatService.getGroupChat(user1.getUserId(),"elites");
+        System.out.println(groupChat.membershipSize()+ "line 364 test");
+
         userReg = new UserRegistrationRequest();
         userReg.setFirstName("Doris");
         userReg.setLastName("Eb");
+
 
         UserRegistrationResponse userToAddRegRes = userService.userSignUp(userReg);
         UserInterface userToAdd = userService.findUserById(userToAddRegRes.getUserId());
@@ -371,9 +376,9 @@ public class AppTest {
         groupChatUpDateRequest.setGroupChatName("elites");
         groupChatUpDateRequest.setUserToAddId(userToAdd.getUserId());
 
-        GroupChatService groupChatService = new GroupChatServiceImpl();
         groupChatService.updateGroupChat(groupChatUpDateRequest);
-        GroupChat groupChat = groupChatService.getGroupChat(user1.getUserId(),"elites");
+
+        System.out.println(groupChat.membershipSize()+ "line 381 test");
 
         for (String userId: groupChat.viewGroupMembers()){
             if (userId.equals(userToAddRegRes.getUserId())) System.out.println("am here line 382");

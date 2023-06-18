@@ -66,7 +66,6 @@ public class GroupChatServiceImpl implements GroupChatService{
                 && groupChat.isExisting()
                 && (!userToAdd.getUserId().equals(nullUser))
                 && (!admin.getUserId().equals(nullUser))){
-
             for (int i = 0; i < groupChat.getGroupChatAdmins().length; i++) {
 
                 String groupAdminId = groupChat.getGroupChatAdmins()[i];
@@ -74,7 +73,8 @@ public class GroupChatServiceImpl implements GroupChatService{
                     if (groupAdminId.equals(admin.getUserId())) {
 
                         groupChat.viewGroupMembers().add(userToAdd.getUserId());
-//                        repo.saveNewGroupChat(groupChat);
+
+                        repo.saveNewGroupChat(groupChat);
                         break;
                     }
                 }

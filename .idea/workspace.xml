@@ -6,16 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ChatNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ChatNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/users/NullUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/NullUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/users/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/users/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/ChatNotification.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/ChatNotification.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/users/NullUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/users/NullUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/users/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/users/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/users/UserInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AppTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AppTest.java" afterDir="false" />
     </list>
@@ -121,7 +112,7 @@
       <recent name="dto.request" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.testThatGroupMembersAreNotifiedForEveryNewMessage">
+  <component name="RunManager" selected="JUnit.AppTest">
     <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
@@ -173,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AppTest.testThatGroupMembersAreNotifiedForEveryNewMessage" />
         <item itemvalue="JUnit.AppTest" />
+        <item itemvalue="JUnit.AppTest.testThatNewMembersCanBeAddedToGroupChatByAdmin" />
+        <item itemvalue="JUnit.AppTest.testThatGroupMembersAreNotifiedForEveryNewMessage" />
         <item itemvalue="JUnit.AppTest.testThatOnlyMembersOfGroupChatCanViewTheSameMessage" />
         <item itemvalue="JUnit.AppTest.chatOnce" />
-        <item itemvalue="JUnit.AppTest.testThatNewMembersCanBeAddedToGroupChatByAdmin" />
       </list>
     </recent_temporary>
   </component>
@@ -276,6 +267,7 @@
       <workItem from="1686819881037" duration="606000" />
       <workItem from="1686822891082" duration="47000" />
       <workItem from="1686860019575" duration="54000" />
+      <workItem from="1687041008355" duration="1383000" />
     </task>
     <servers />
   </component>
