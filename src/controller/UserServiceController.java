@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import repositories.UserRepositoryImpl;
-import repositories.UserRepositoryInterface;
+
 import services.UserServiceImpl;
 
 import java.util.List;

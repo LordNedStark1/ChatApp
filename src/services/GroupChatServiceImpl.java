@@ -12,11 +12,13 @@ import model.Message;
 import model.chat.GroupChat;
 import model.chat.NullChat;
 import model.users.UserInterface;
+import org.springframework.stereotype.Service;
 import repositories.GroupChatRepositoryImpl;
 import repositories.GroupChatRepositoryInterface;
 
 import java.util.List;
 
+@Service
 public class GroupChatServiceImpl implements GroupChatService{
     private static final GroupChatRepositoryInterface repo = new GroupChatRepositoryImpl();
 

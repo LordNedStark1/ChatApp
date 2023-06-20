@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/GroupChatServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/UserServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserServiceController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,22 +110,12 @@
       <recent name="dto.request" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AppTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.chatOnce" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ChatApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AppTest" />
-      <option name="METHOD_NAME" value="chatOnce" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,23 +140,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.testThatOnlyMembersOfGroupChatCanViewTheSameMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ChatApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ChatApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AppTest" />
-      <option name="METHOD_NAME" value="testThatOnlyMembersOfGroupChatCanViewTheSameMessage" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="main.ChatApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ChatApp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="controller.Main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="Spring Boot.ChatApplication" />
         <item itemvalue="JUnit.AppTest" />
         <item itemvalue="JUnit.AppTest.testThatNewMembersCanBeAddedToGroupChatByAdmin" />
         <item itemvalue="JUnit.AppTest.testThatGroupMembersAreNotifiedForEveryNewMessage" />
-        <item itemvalue="JUnit.AppTest.testThatOnlyMembersOfGroupChatCanViewTheSameMessage" />
-        <item itemvalue="JUnit.AppTest.chatOnce" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +271,8 @@
       <workItem from="1686819881037" duration="606000" />
       <workItem from="1686822891082" duration="47000" />
       <workItem from="1686860019575" duration="54000" />
-      <workItem from="1687041008355" duration="1383000" />
+      <workItem from="1687041008355" duration="2208000" />
+      <workItem from="1687248102608" duration="602000" />
     </task>
     <servers />
   </component>
