@@ -1,21 +1,17 @@
 package dto.request;
 
+import lombok.Data;
+
 import java.io.Serializable;
+@Data
 
 public class UserRegistrationRequest implements Serializable {
     private String firstName;
     private String lastName;
     private String emailAddress;
     private String phoneNumber;
-    private String senderId;
 
-    public String getUserId() {
-        return senderId;
-    }
 
-    public void setSenderId(String senderId) {
-        this.senderId = senderId;
-    }
 
     public String getFirstName() {
         return firstName;

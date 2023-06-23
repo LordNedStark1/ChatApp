@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="" />
+    <list default="true" id="cdc86d05-b3ca-49f5-8736-447ce3bdb4dd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppUtils/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppUtils/Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/UserServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dto/request/UserRegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dto/request/UserRegistrationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AppUtils/Mapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AppUtils/Mapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/UserServiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/UserServiceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dto/request/UserRegistrationRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/request/UserRegistrationRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/UserRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/UserRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GroupChatServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GroupChatServiceImpl.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -270,6 +283,9 @@
       <workItem from="1686860019575" duration="54000" />
       <workItem from="1687041008355" duration="2208000" />
       <workItem from="1687248102608" duration="1378000" />
+      <workItem from="1687282756219" duration="878000" />
+      <workItem from="1687527547832" duration="1074000" />
+      <workItem from="1687540052036" duration="25000" />
     </task>
     <servers />
   </component>

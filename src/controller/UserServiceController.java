@@ -9,10 +9,7 @@ import dto.response.GroupUserRemovalResponse;
 import dto.response.UserRegistrationResponse;
 import model.Message;
 import model.chat.GroupChat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import services.UserServiceImpl;
 
@@ -26,7 +23,7 @@ public class UserServiceController {
     UserServiceImpl userService = new UserServiceImpl();
 
     @PostMapping("/signUp")
-    public UserRegistrationResponse userSignUp(UserRegistrationRequest userRegistrationRequest){
+    public UserRegistrationResponse userSignUp(@RequestBody UserRegistrationRequest userRegistrationRequest){
         return userService.userSignUp(userRegistrationRequest);
     }
     String chat(ChatRequest chatRequest){

@@ -14,7 +14,7 @@ public class Mapper {
         user.setLastName(userRegistrationRequest.getLastName());
         user.setPhoneNumber(userRegistrationRequest.getPhoneNumber());
         user.setEmailAddress(userRegistrationRequest.getEmailAddress());
-        user.setUserId(Generator.generateId());
+
         user.setExisting(true);
 
         return user;
@@ -27,7 +27,6 @@ public class Mapper {
         userResponse.setLastName(user.getLastName());
         userResponse.setFullName(user.getFullName());
         userResponse.setMessage(1);
-        userResponse.setUserId(user.getUserId());
 
         return userResponse;
 

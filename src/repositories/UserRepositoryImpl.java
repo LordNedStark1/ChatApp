@@ -1,6 +1,7 @@
 package repositories;
 
 
+import AppUtils.Generator;
 import model.chat.GroupChat;
 import model.chat.NullChat;
 import model.users.NullUser;
@@ -15,6 +16,7 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
 
     @Override
     public void saveNewUser(User newUser) {
+        newUser.setUserId(Generator.generateId());
         users.add(newUser);
     }
 
