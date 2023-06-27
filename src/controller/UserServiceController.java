@@ -22,6 +22,11 @@ public class UserServiceController {
 
     UserServiceImpl userService = new UserServiceImpl();
 
+    @GetMapping("/get")
+    public String get(){
+        return "hello";
+    }
+
     @PostMapping("/signUp")
     public UserRegistrationResponse userSignUp(@RequestBody UserRegistrationRequest userRegistrationRequest){
         return userService.userSignUp(userRegistrationRequest);
@@ -29,10 +34,7 @@ public class UserServiceController {
     String chat(ChatRequest chatRequest){
         return userService.chat(chatRequest);
     }
-    @GetMapping("/get")
-    public String hell0(){
-        return "hello";
-    }
+
     List<Message> viewChat(String receiverId, String senderId){
         return userService.viewChat(receiverId, senderId);
     }
