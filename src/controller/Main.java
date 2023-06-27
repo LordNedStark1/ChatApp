@@ -9,9 +9,10 @@ import java.util.ArrayList;
 
 @SpringBootApplication
 public class Main {
-
+//    UserServiceController userServiceController = new UserServiceController();
     public static void main(String... params) {
-        
         SpringApplication.run(Main.class, params);
+
     }
+
 }
