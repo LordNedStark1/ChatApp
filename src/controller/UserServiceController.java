@@ -24,19 +24,20 @@ public class UserServiceController {
 
     @GetMapping("/get")
     public String get(){
-        return "hello";
+        return "hello dfgg";
     }
 
     @PostMapping("/signUp")
     public UserRegistrationResponse userSignUp(@RequestBody UserRegistrationRequest userRegistrationRequest){
         return userService.userSignUp(userRegistrationRequest);
     }
+    @PostMapping("/chat")
     String chat(ChatRequest chatRequest){
         return userService.chat(chatRequest);
     }
-
-    List<Message> viewChat(String receiverId, String senderId){
-        return userService.viewChat(receiverId, senderId);
+    @GetMapping("/viewChats")
+    List<Message> viewChats(String receiverId, String senderId){
+        return userService.viewChats(receiverId, senderId);
     }
 
     GroupCreationResponse createGroupChat(CreateGroupChatRequest createGroupChatRequest){

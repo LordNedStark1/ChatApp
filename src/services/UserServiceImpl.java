@@ -169,7 +169,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Message> viewChat(String receiverId, String senderId) {
+    public List<Message> viewChats(String receiverId, String senderId) {
         UserInterface receiver = findUserById(receiverId);
         UserInterface sender = findUserById(senderId);
 

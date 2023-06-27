@@ -76,7 +76,9 @@ public class GroupChatServiceImpl implements GroupChatService{
 
                         groupChat.viewGroupMembers().add(userToAdd.getUserId());
 
-                        repo.saveNewGroupChat(groupChat);
+
+
+//                        repo.saveNewGroupChat(groupChat);
                         break;
                     }
                 }

@@ -1,11 +1,12 @@
 package dto.request;
 
 
+import lombok.Data;
 import model.users.UserInterface;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 public class CreateGroupChatRequest {
     private List<String> membersId = new ArrayList<>();
     private String groupName;
@@ -19,19 +20,10 @@ public class CreateGroupChatRequest {
         membersId.add(userId);
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    public String getAdminId() {
-        return adminId;
-    }
 
     public List <String> allMembers() {
         return membersId;
     }
 
-    public String getGroupName() {
-        return groupName;
-    }
+
 }

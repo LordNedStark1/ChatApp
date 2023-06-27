@@ -17,7 +17,7 @@ public interface UserService {
 
     UserRegistrationResponse userSignUp(UserRegistrationRequest userRegistrationRequest);
     String chat(ChatRequest chatRequest);
-    List<Message> viewChat(String receiverId, String senderId);
+    List<Message> viewChats(String receiverId, String senderId);
 
     GroupCreationResponse createGroupChat(CreateGroupChatRequest createGroupChatRequest);
 

@@ -9,11 +9,11 @@ public class Mapper {
 
     public static User map(UserRegistrationRequest userRegistrationRequest) {
         User user = new User();
-
         user.setFirstName(userRegistrationRequest.getFirstName());
         user.setLastName(userRegistrationRequest.getLastName());
         user.setPhoneNumber(userRegistrationRequest.getPhoneNumber());
         user.setEmailAddress(userRegistrationRequest.getEmailAddress());
+
 
         user.setExisting(true);
 
@@ -26,7 +26,10 @@ public class Mapper {
         userResponse.setFirstName(user.getFirstName());
         userResponse.setLastName(user.getLastName());
         userResponse.setFullName(user.getFullName());
-        userResponse.setMessage(1);
+        userResponse.setMessage("Signed up successfully!\n");
+        userResponse.setPhoneNumber(user.getPhoneNumber());
+        userResponse.setUserId(user.getUserId());
+        userResponse.setEmailAddress(user.getEmailAddress());
 
         return userResponse;
 

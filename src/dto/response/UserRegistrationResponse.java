@@ -1,45 +1,21 @@
 package dto.response;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
 public class UserRegistrationResponse implements Serializable {
     private String userId;
     private String firstName;
     private String lastName;
     private String fullName;
     private String message;
+    private String phoneNumber;
+    private String emailAddress;
 
-    public String getUserId() {
-        return userId;
-    }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setMessage(int messageToDisplay) {
-        message = "SignUp successful!\n";
-    }
-
-    public void setUserName(String fullName) {
-        this.fullName = fullName;
-    }
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
@@ -49,7 +25,7 @@ public class UserRegistrationResponse implements Serializable {
 
     @Override
     public String toString() {
-        return "User id is : "+ userId + "\nFull name is : "+ fullName+ "\n" + message;
+        return "Full name is : "+ fullName+ "\n" + message;
     }
 
 

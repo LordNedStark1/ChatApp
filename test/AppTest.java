@@ -17,6 +17,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 public class AppTest {
     UserService userService;
 
@@ -80,13 +81,14 @@ public class AppTest {
     @Test
     void confirmSignUp(){
 
-        String first = "User id is : "+ userRegRes.getUserId() + "\nFull name is : "
-                + userReg.getFullName()+ "\n" +  "SignUp successful!\n";
-        String second = "User id is : "+ userRegRes2.getUserId() + "\nFull name is : "
-                + userReg2.getFullName()+ "\n" +  "SignUp successful!\n";
+        String first =  "Full name is : " + userReg.getFullName()+
+                "\n" +  "Signed up successfully!\n";
+        String second =  "Full name is : " + userReg2.getFullName()+
+                "\n" +  "Signed up successfully!\n";
 
         assertEquals(String.valueOf(userRegRes),first);
         assertEquals(String.valueOf(userRegRes2),second);
+
 
         assertEquals(user1.getUserId(), userRegRes.getUserId());
         assertEquals(user2.getUserId(), userRegRes2.getUserId());
@@ -102,7 +104,7 @@ public class AppTest {
 
         userService.chat(chatRequest1);
 
-        List <Message> receivedMessage =userService.viewChat(user2.getUserId(), user1.getUserId());
+        List <Message> receivedMessage =userService.viewChats(user2.getUserId(), user1.getUserId());
         Message message2 = receivedMessage.get(0);
 
 
@@ -123,7 +125,7 @@ public class AppTest {
 
         userService.chat(chatRequest1);
 
-        List <Message> receivedMessage =userService.viewChat("user2.getUserId()", user1.getUserId());
+        List <Message> receivedMessage =userService.viewChats("user2.getUserId()", user1.getUserId());
         Message message2 = receivedMessage.get(0);
 
                assertNotNull(message2);
@@ -138,7 +140,7 @@ public class AppTest {
 
         userService.chat(chatRequest1);
 
-        List <Message> receivedMessage1 =userService.viewChat(user2.getUserId(), user1.getUserId());
+        List <Message> receivedMessage1 =userService.viewChats(user2.getUserId(), user1.getUserId());
         Message message2 = receivedMessage1.get(0);
 
         String messageToAssert1 = "Message from " + message2.getSenderName() + " " +
@@ -156,7 +158,7 @@ public class AppTest {
 
         userService.chat(chatRequest2);
 
-        List <Message> secondReceivedMessage =userService.viewChat(user2.getUserId(), user1.getUserId());
+        List <Message> secondReceivedMessage =userService.viewChats(user2.getUserId(), user1.getUserId());
         Message secondMessage = secondReceivedMessage.get(1);
 
         String secondMessageToAssert = "Message from " + secondMessage.getSenderName() + " " +
@@ -176,13 +178,13 @@ public class AppTest {
 
         userService.chat(chatRequest1);
 
-        List <Message> receivedMessage1 =userService.viewChat(user2.getUserId(), user1.getUserId());
-        List <Message> receivedMessage2 =userService.viewChat(user2.getUserId(), user3.getUserId());
-        List <Message> receivedMessage3 =userService.viewChat(user1.getUserId(), user1.getUserId());
-        List <Message> receivedMessage4 =userService.viewChat(user2.getUserId(), user2.getUserId());
-        List <Message> receivedMessage5 =userService.viewChat(user3.getUserId(), user2.getUserId());
-        List <Message> receivedMessage6 =userService.viewChat(user3.getUserId(), user1.getUserId());
-        List <Message> receivedMessage7 =userService.viewChat(user3.getUserId(), user3.getUserId());
+        List <Message> receivedMessage1 =userService.viewChats(user2.getUserId(), user1.getUserId());
+        List <Message> receivedMessage2 =userService.viewChats(user2.getUserId(), user3.getUserId());
+        List <Message> receivedMessage3 =userService.viewChats(user1.getUserId(), user1.getUserId());
+        List <Message> receivedMessage4 =userService.viewChats(user2.getUserId(), user2.getUserId());
+        List <Message> receivedMessage5 =userService.viewChats(user3.getUserId(), user2.getUserId());
+        List <Message> receivedMessage6 =userService.viewChats(user3.getUserId(), user1.getUserId());
+        List <Message> receivedMessage7 =userService.viewChats(user3.getUserId(), user3.getUserId());
 
         Message message1 = receivedMessage1.get(0);
         Message message2 = receivedMessage2.get(0);
@@ -217,7 +219,7 @@ public class AppTest {
 
         userService.chat(chatRequest1);
 
-        List <Message> receivedMessage1 =userService.viewChat(user2.getUserId(), user1.getUserId());
+        List <Message> receivedMessage1 =userService.viewChats(user2.getUserId(), user1.getUserId());
         Message message2 = receivedMessage1.get(0);
 
         String messageToAssert1 = "Message from " + message2.getSenderName() + " " +
@@ -234,7 +236,7 @@ public class AppTest {
 
         userService.chat(chatRequest2);
 
-        List <Message> secondReceivedMessage =userService.viewChat(user2.getUserId(), user1.getUserId());
+        List <Message> secondReceivedMessage =userService.viewChats(user2.getUserId(), user1.getUserId());
         Message secondMessage = secondReceivedMessage.get(1);
 
         String secondMessageToAssert = "Message from " + secondMessage.getSenderName() + " " +
@@ -254,7 +256,7 @@ public class AppTest {
         chatRequest1.setRawMessage(thirdMessageToSend);
 
         userService.chat(chatRequest1);
-        List <Message> thirdReceivedMessage =userService.viewChat(user2.getUserId(), user1.getUserId());
+        List <Message> thirdReceivedMessage =userService.viewChats(user2.getUserId(), user1.getUserId());
         Message thirdMessage = thirdReceivedMessage.get(2);
 
         String thirdMessageToAssert = "Message from " + thirdMessage.getSenderName() + " " +
@@ -276,7 +278,7 @@ public class AppTest {
         chatRequest1.setRawMessage(thirdMessageToSend);
 
         userService.chat(chatRequest1);
-        List <Message> forthReceivedMessage =userService.viewChat(user2.getUserId(), user1.getUserId());
+        List <Message> forthReceivedMessage =userService.viewChats(user2.getUserId(), user1.getUserId());
         Message forthMessage = forthReceivedMessage.get(3);
 
         String forthMessageToAssert = "Message from " + forthMessage.getSenderName() + " " +
@@ -300,8 +302,8 @@ public class AppTest {
 
         userService.chat(chatRequest1);
 
-        List <Message> receivedMessage1 =userService.viewChat(user2.getUserId(), user1.getUserId());
-        List <Message> receivedMessage2 =userService.viewChat(user1.getUserId(), user2.getUserId());
+        List <Message> receivedMessage1 =userService.viewChats(user2.getUserId(), user1.getUserId());
+        List <Message> receivedMessage2 =userService.viewChats(user1.getUserId(), user2.getUserId());
         Message message2 = receivedMessage1.get(0);
         Message message3 = receivedMessage2.get(0);
 
@@ -336,7 +338,7 @@ public class AppTest {
         assertEquals(3, userService.getGroupChatSize(user1.getUserId(), "elites"));
 
         GroupUserRemovalRequest groupUserRemovalRequest = new GroupUserRemovalRequest();
-        groupUserRemovalRequest.setAdmin(user1.getUserId());
+        groupUserRemovalRequest.setAdminId(user1.getUserId());
         groupUserRemovalRequest.setGroupName("elites");
         groupUserRemovalRequest.setMemberToRemove( user3.getUserId());
 
@@ -361,30 +363,29 @@ public class AppTest {
     public void testThatNewMembersCanBeAddedToGroupChatByAdmin(){
         GroupChatService groupChatService = new GroupChatServiceImpl();
         GroupChat groupChat = groupChatService.getGroupChat(user1.getUserId(),"elites");
-        System.out.println(groupChat.membershipSize()+ "line 364 test");
+        int groupSize = groupChat.membershipSize();
 
-        userReg = new UserRegistrationRequest();
-        userReg.setFirstName("Doris");
-        userReg.setLastName("Eb");
+        UserRegistrationRequest userRegNewSignUp = new UserRegistrationRequest();
+        userRegNewSignUp.setFirstName("Doris");
+        userRegNewSignUp.setLastName("Eb");
 
 
-        UserRegistrationResponse userToAddRegRes = userService.userSignUp(userReg);
+        UserRegistrationResponse userToAddRegRes = userService.userSignUp(userRegNewSignUp);
         UserInterface userToAdd = userService.findUserById(userToAddRegRes.getUserId());
 
-        groupChatUpDateRequest = new GroupChatUpDateRequest();
+        GroupChatUpDateRequest groupChatUpDateRequest = new GroupChatUpDateRequest();
         groupChatUpDateRequest.setAdminId(user1.getUserId());
         groupChatUpDateRequest.setGroupChatName("elites");
         groupChatUpDateRequest.setUserToAddId(userToAdd.getUserId());
 
         groupChatService.updateGroupChat(groupChatUpDateRequest);
-
-        System.out.println(groupChat.membershipSize()+ "line 381 test");
+        GroupChat updatedGroupChat = groupChatService.getGroupChat(user1.getUserId(),"elites");
 
         for (String userId: groupChat.viewGroupMembers()){
             if (userId.equals(userToAddRegRes.getUserId())) System.out.println("am here line 382");
         }
 
-        assertEquals(4, groupChat.membershipSize());
+        assertEquals(groupSize + 1, updatedGroupChat.membershipSize());
     }
     @Test
     public void testThatNullUsersAreNotAddedToGroupChat(){
